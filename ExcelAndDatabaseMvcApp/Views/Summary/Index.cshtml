@@ -1,0 +1,28 @@
+﻿@using ExcelAndDatabaseMvcApp.Dtos;
+@model List<Summary>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Koszt pracowników</th>
+            <th>Koszt materiałów</th>
+            <th>Dochód firmy</th>
+            <th>Przychód brutto</th>
+            <th>Przychód netto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var summary in Model)
+        {
+            <tr>
+                <td>@summary.YearMonth</td>
+                <td>@summary.EmployeesExpenses</td>
+                <td>@summary.OrdersExpenses</td>
+                <td>@summary.CompanyIncomes</td>
+                <td>@summary.ProfitBrutto</td>
+                <td>@summary.ProfitNetto</td>
+            </tr>
+        }
+    </tbody>
+</table>

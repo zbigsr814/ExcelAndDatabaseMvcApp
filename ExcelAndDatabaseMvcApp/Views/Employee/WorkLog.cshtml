@@ -1,0 +1,26 @@
+﻿@using ExcelAndDatabaseMvcApp.Entities;
+@model List<Employee>
+
+    <h1>Informacje o czasie przepracowanym przez pracownika @Model[0].Name @Model[0].PESEL</h1>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>Data rejestracji</th>
+            <th>Czas pracy</th>
+            <th>Zarobek brutto pracownika</th>
+            <th>Zarobek netto pracownika</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var workLog in Model[0].WorkLogs)
+        {
+            <tr>
+                <td>@workLog.Date</td>
+                <td>@workLog.HoursWorked</td>
+                <td>@workLog.CostNet</td>
+                <td>@workLog.CostGross</td>
+            </tr>
+        }
+    </tbody>
+</table>

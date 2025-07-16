@@ -1,0 +1,24 @@
+﻿@using ExcelAndDatabaseMvcApp.Entities;
+@model List<Order>
+
+<h1>Przedmioty zamówienia @Model[0].OrderNumber z dnia @Model[0].Date</h1>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>Przedmiot</th>
+            <th>Koszt brutto</th>
+            <th>Ilość</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var orderItem in Model[0].Items)
+        {
+            <tr>
+                <td>@orderItem.ItemName</td>
+                <td>@orderItem.PriceGross</td>
+                <td>@orderItem.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>

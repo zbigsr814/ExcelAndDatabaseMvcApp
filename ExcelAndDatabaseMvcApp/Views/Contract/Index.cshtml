@@ -1,0 +1,26 @@
+﻿@using ExcelAndDatabaseMvcApp.Entities;
+@model List<Contract>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa klienta</th>
+            <th>Przychód brutto</th>
+            <th>Przychód netto</th>
+            <th>Rozpoczęcie projektu</th>
+            <th>Planowana data zakończenia projektu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contract in Model)
+        {
+            <tr>
+                <td>@contract.ClientName</td>
+                <td>@contract.RevenueGross</td>
+                <td>@contract.RevenueNet</td>
+                <td>@contract.StartDate</td>
+                <td>@contract.EndDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

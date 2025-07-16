@@ -1,0 +1,28 @@
+﻿@using ExcelAndDatabaseMvcApp.Entities;
+@model List<Employee>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imie i nazwisko</th>
+            <th>PESEL</th>
+            <th>Stanowisko</th>
+            <th>Stawka brutto godzinowa</th>
+            <th>Czasy pracy</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.PESEL</td>
+                <td>@employee.Position</td>
+                <td>@employee.HourlyRateGross</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Employee" asp-action="WorkLog" asp-route-id="@employee.Id" role="button">Szczegóły</a>
+                </td>   
+            </tr>
+        }
+    </tbody>
+</table>
