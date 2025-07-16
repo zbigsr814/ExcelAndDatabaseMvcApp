@@ -1,7 +1,9 @@
 ﻿@using ExcelAndDatabaseMvcApp.Entities;
 @model List<Employee>
 
-    <h1>Informacje o czasie przepracowanym przez pracownika @Model[0].Name @Model[0].PESEL</h1>
+<h1>Czas pracy dla @Model[0].Name</h1>
+<h1>Pesel: @Model[0].PESEL</h1>
+
 <table class="table">
     <thead>
         <tr>
