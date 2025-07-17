@@ -18,7 +18,7 @@
                 <td>@order.OrderNumber</td>
                 <td>@order.Date</td>
                 <td>@order.TotalGross</td>
-                <td>@order.TotalNet</td>
+                <td>@order.TotalNet.ToString("F2")</td>
                 <td>
                     <a class="btn btn-primary" asp-controller="Order" asp-action="OrderItem" asp-route-id="@order.Id" role="button">Szczegóły</a>
                 </td>   

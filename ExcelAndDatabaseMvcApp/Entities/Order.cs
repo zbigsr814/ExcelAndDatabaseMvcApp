@@ -1,4 +1,6 @@
-﻿namespace ExcelAndDatabaseMvcApp.Entities
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace ExcelAndDatabaseMvcApp.Entities
 {
     public class Order
     {

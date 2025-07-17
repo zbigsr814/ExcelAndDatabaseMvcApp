@@ -1,11 +1,12 @@
-﻿namespace ExcelAndDatabaseMvcApp.Entities
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace ExcelAndDatabaseMvcApp.Entities
 {
     public class WorkLog
     {
         public int Id { get; set; }
         public int EmployeeId { get; set; }                     // wiązanie 1 Employee => wiele WorkItems
         public Employee Employee { get; set; }                 // wiązanie 1 Employee => wiele WorkItems
-
         public DateTime Date { get; set; }                  // określenie dnia logowania pracownika
         public decimal HoursWorked { get; set; }
 

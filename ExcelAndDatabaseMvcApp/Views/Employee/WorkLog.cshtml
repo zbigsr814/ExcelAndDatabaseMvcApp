@@ -20,8 +20,8 @@
             <tr>
                 <td>@workLog.Date</td>
                 <td>@workLog.HoursWorked</td>
-                <td>@workLog.CostNet</td>
-                <td>@workLog.CostGross</td>
+                <td>@workLog.CostNet.ToString("F2")</td>
+                <td>@workLog.CostGross.ToString("F2")</td>
             </tr>
         }
     </tbody>

@@ -22,12 +22,13 @@ MonthlyContractsGross AS (
 	GROUP BY YEAR(c.StartDate), MONTH(c.StartDate)
 )
 SELECT 
-	COALESCE(me.YearMonth, mo.YearMonth, mc.YearMonth) AS 'YearMonth',
-	ISNULL(me.MonthlySalarysExpenses, 0) AS 'EmployeesExpenses',
-	ISNULL(mo.MonthlyOrdersExpenses, 0) AS 'OrdersExpenses',
-	ISNULL(mc.MonthlyIncomes, 0) AS 'CompanyIncomes',
-	(ISNULL(mc.MonthlyIncomes, 0) - ISNULL(me.MonthlySalarysExpenses, 0) - ISNULL(mo.MonthlyOrdersExpenses, 0)) AS 'ProfitBrutto',
-	(ISNULL(mc.MonthlyIncomes, 0) - ISNULL(me.MonthlySalarysExpenses, 0) - ISNULL(mo.MonthlyOrdersExpenses, 0)) / 1.23 AS 'ProfitNetto'
+	FORMAT(COALESCE(me.YearMonth, mo.YearMonth, mc.YearMonth), 'MM-yyyy') AS 'YearMonth',
+	CAST(ISNULL(me.MonthlySalarysExpenses, 0) AS decimal(18, 2)) AS 'EmployeesExpenses',
+	CAST(ISNULL(mo.MonthlyOrdersExpenses, 0) AS decimal(18, 2)) AS 'OrdersExpenses',
+	CAST(ISNULL(mc.MonthlyIncomes, 0) AS decimal(18, 2)) AS 'CompanyIncomes',
+	CAST((ISNULL(mc.MonthlyIncomes, 0) - ISNULL(me.MonthlySalarysExpenses, 0) - ISNULL(mo.MonthlyOrdersExpenses, 0)) AS decimal(18, 2)) AS 'ProfitBrutto',
+	CAST(((ISNULL(mc.MonthlyIncomes, 0) - ISNULL(me.MonthlySalarysExpenses, 0) - ISNULL(mo.MonthlyOrdersExpenses, 0)) / 1.23) AS decimal(18, 2)) AS 'ProfitNetto'
+
 FROM MonthlyEmployeesGross me
 FULL JOIN MonthlyOrdersGross mo ON me.YearMonth = mo.YearMonth
 FULL JOIN MonthlyContractsGross mc ON me.YearMonth = mc.YearMonth
